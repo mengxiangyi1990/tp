@@ -1,0 +1,19 @@
+{empty name="list"}
+<button class="btn btn-block btn_load" href="javascript:;">没有更多数据了</button>
+{else/}
+{notempty name="list"}
+{volist name="list" id="channel"}
+    <a href="/home/index/detail.html?id={$channel.id}">
+        <div class="col-xs-2">
+            <img class="img-rounded img-responsive" src="/image/1.png" />
+        </div>
+        <div class="col-xs-10">
+            <p class="title">{$channel.title}</p>
+            <p class="info">浏览: {$channel.view} <span class="pull-right">{$channel.create_time|time_format}</span> </p>
+        </div>
+    </a>
+{/volist}
+{/notempty}
+<hr/>
+<button class="btn btn-info btn-block btn_load" onclick="loadPage({$no})">获取更多...</button>
+{/empty}

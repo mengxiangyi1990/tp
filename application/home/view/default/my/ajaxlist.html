@@ -1,0 +1,26 @@
+{empty name="list"}
+<button class="btn btn-block btn_load" href="javascript:;">没有更多数据了</button>
+{else/}
+{notempty name="list"}
+{volist name="list" id="channel"}
+
+        <div class="container-fluid" id="content_list">
+            <div class="row noticeList">
+                <a href="/home/my/detail.html?id={$channel.id}">
+                    <div class="col-xs-3">
+                        <p class="title text-info ">报修人:{$channel.name}</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <p class="title">报修标题：{$channel.title}</p>
+
+                    </div>
+                    <div class="col-xs-push-3">
+                        <p class="title text-danger">已处理 </p>
+                    </div>
+
+                </a>
+{/volist}
+{/notempty}
+<hr/>
+<button class="btn btn-info btn-block btn_load" onclick="loadPage({$no})">获取更多...</button>
+{/empty}
